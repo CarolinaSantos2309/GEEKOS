@@ -1,0 +1,244 @@
+     :root {
+         --primary: #6e44ff;
+         --secondary: #b892ff;
+         --dark: #121212;
+         --light: #f8f9fa;
+         --glass: rgba(255, 255, 255, 0.08);
+         --glass-border: rgba(255, 255, 255, 0.1);
+     }
+
+     body {
+         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+         background:
+             linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
+             url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+         background-size: cover;
+         color: var(--light);
+         margin: 0;
+         padding: 0;
+     }
+
+     .main-content {
+         max-width: 1400px;
+         margin: 0 auto;
+         padding: 20px;
+         min-height: 80vh;
+     }
+
+     /* Header Styles */
+     .header-container {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 5px 20px;
+         background: rgba(18, 18, 18, 0.8);
+         backdrop-filter: blur(10px);
+         border-bottom: 1px solid var(--glass-border);
+         height: 60px;
+         max-width: 1400px;
+         margin: 0 auto;
+         width: 100%;
+     }
+
+     .logo-space {
+         height: 100%;
+         display: flex;
+         align-items: center;
+         margin-right: 40px;
+     }
+
+     .logo-space img {
+         height: 170px;
+         width: auto;
+
+     }
+
+     #top {
+         flex: 1;
+         height: 100%;
+         display: flex;
+         justify-content: center;
+     }
+
+     #top ul {
+         display: flex;
+         gap: 30px;
+         list-style: none;
+         height: 100%;
+         align-items: center;
+         margin: 0;
+         padding: 0;
+     }
+
+     #top li {
+         position: relative;
+         height: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         transition: all 0.3s ease;
+         margin: 0 10px;
+     }
+
+     #top li:not(:last-child)::after {
+         content: "";
+         position: absolute;
+         right: -25px;
+         top: 20%;
+         bottom: 20%;
+         width: 1px;
+         background-color: #ddd;
+     }
+
+     #top a {
+         color: var(--light);
+         text-decoration: none;
+         font-weight: 500;
+         font-size: 22px;
+         padding: 0px 20px;
+         transition: all 0.3s ease;
+         white-space: nowrap;
+     }
+
+     #top li:hover {
+         transform: translateY(-3px);
+         background: linear-gradient(45deg, var(--primary), var(--secondary));
+         border-radius: 15px;
+     }
+
+     #top li:hover a {
+         color: #ffffff;
+         text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+     }
+
+     .account-btn {
+         background: var(--primary);
+         color: white;
+         border: none;
+         padding: 8px 16px;
+         border-radius: 20px;
+         cursor: pointer;
+         transition: all 0.3s;
+         display: inline-flex;
+         align-items: center;
+         gap: 8px;
+         text-decoration: none;
+         font-weight: bold;
+     }
+
+     .account-btn i {
+         font-size: 20px;
+     }
+
+     .account-btn:hover {
+         background: var(--secondary);
+         transform: translateY(-2px);
+     }
+
+     /* Account Page Styles */
+     .account-container {
+         max-width: 600px;
+         margin: 50px auto;
+         background: var(--glass);
+         backdrop-filter: blur(10px);
+         border: 1px solid var(--glass-border);
+         border-radius: 15px;
+         padding: 30px;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+     }
+
+     .account-title {
+         text-align: center;
+         margin-bottom: 30px;
+         color: var(--secondary);
+         font-size: 2rem;
+     }
+
+     .account-form {
+         display: flex;
+         flex-direction: column;
+         gap: 20px;
+     }
+
+     .form-group {
+         display: flex;
+         flex-direction: column;
+         gap: 8px;
+     }
+
+     .form-group label {
+         font-weight: 500;
+         color: var(--secondary);
+     }
+
+     .form-group input {
+         padding: 12px 15px;
+         border-radius: 8px;
+         border: none;
+         background: rgba(255, 255, 255, 0.1);
+         color: white;
+         font-size: 1rem;
+         transition: all 0.3s;
+     }
+
+     .form-group input:focus {
+         outline: none;
+         background: rgba(255, 255, 255, 0.2);
+         box-shadow: 0 0 0 2px var(--primary);
+     }
+
+     .save-btn {
+         background: linear-gradient(45deg, var(--primary), var(--secondary));
+         color: white;
+         border: none;
+         padding: 12px;
+         border-radius: 8px;
+         font-weight: bold;
+         font-size: 1rem;
+         cursor: pointer;
+         transition: all 0.3s;
+         margin-top: 10px;
+     }
+
+     .save-btn:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 5px 15px rgba(110, 68, 255, 0.4);
+     }
+
+     .user-info {
+         text-align: center;
+         margin-top: 20px;
+         padding: 20px;
+         background: rgba(110, 68, 255, 0.1);
+         border-radius: 10px;
+         border: 1px solid var(--glass-border);
+     }
+
+     .user-info h3 {
+         color: var(--secondary);
+         margin-bottom: 10px;
+     }
+         footer {
+             background-color: var(--dark);
+             color: var(--light);
+             padding: 1.5rem 0;
+             margin-top: 2rem;
+             /* Espaço acima do footer */
+             border-top: 1px solid var(--glass-border);
+    
+             /* Centralização completa */
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             text-align: center;
+    
+             /* Garante que o footer fique no final */
+             width: 100%;
+         }
+    
+         footer p {
+             margin: 0.5rem 0;
+             /* Remove qualquer alinhamento extra */
+             text-align: center !important;
+         }

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeekFlix Code</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="/assets/css/styleindex.css">
+</head>
+
+<body>
+    <main class="main">
+        <section>
+            <header>
+                <div class="header-container">
+                    <div class="logo-space">
+                        <img src="/assets/imagens/o__1_-removebg-preview.png" alt="Logo do Site">
+                    </div>
+                    <div id="top">
+                        <ul>
+                            <li><a href="/index.html">Início</a></li>
+                            <li><a href="/assets/paginas/filme.html">Filme</a></li>
+                            <li><a href="/assets/paginas/serie.html">Série</a></li>
+                            <li><a href="/assets/paginas/quiz.html">Quiz</a></li>
+                        </ul>
+                    </div>
+                    <div id="account-container">
+                        <a href="/assets/paginas/login.html" class="account-btn" id="account-link">
+                            <i class="fas fa-user"></i> <span id="account-text">Minha Conta</span>
+                        </a>
+                    </div>
+                </div>
+                </div>
+            </header>
+        </section>
+    </main>
+
+    <main>
+
+        <div id="meuCarrossel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000"
+            data-bs-pause="hover">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#meuCarrossel" data-bs-slide-to="4"></button>
+            </div>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.infomoney.com.br/wp-content/uploads/2019/06/mr-robot.jpg?fit=900%2C506&quality=50&strip=all"
+                        class="d-block w-100" alt="Mr. Robot">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Mr. Robot</h5>
+                        <p>Ctrl + Alt + Del sua vida social!</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://uploads.metroimg.com/wp-content/uploads/2017/10/04151338/blade-runner-2049-image-min.jpg" alt="Silicon Valley">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Blazer</h5>
+                        <p>Só jogo em modo --hardcore (igual a vida de dev freelancer)</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbIAECGAtO06rl83PHi5yShWhjO5CBF-DPQ&s"
+                        class="d-block w-100" alt="Matrix">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Matrix</h5>
+                        <p>Escolha a pílula vermelha: <code>sudo apt-get upgrade life</code></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://image.tmdb.org/t/p/original/5yf5yfogIxhHhDU7F2Nuk1BsTYQ.jpg" class="d-block w-100"
+                        alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Devs</h5>
+                        <p>O supercomputador da série prevê o futuro... o meu só prevê 'Segmentation Fault'.</code></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="" class="d-block w-100" alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Melhores Dev`s</h5>
+                        <p>Os 3 elementos stress, preguiça e a benção, juntos são os 3 elementos </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#meuCarrossel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#meuCarrossel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </main>
+    <div class="container-lado-a-lado">
+        <section class="descreicao-site">
+            <div class="container">
+                <h1 class="titulo">GEEKOS</h1>
+                <p class="texto">
+                    O seu portal definitivo para filmes e séries com temática tech, hacking e ficção científica.
+                    Explore análises de código escondido em cenas icônicas, easter eggs para devs e referências
+                    que só os verdadeiros geeks entendem!
+                </p>
+                <div class="botao">
+                    <a href="/assets/paginas/serie.html" class="cta-btn btn-series">
+                        <i class="bi bi-collection-play"></i> Explorar Séries
+                    </a>
+                    <a href="/assets/paginas/filme.html" class="cta-btn btn-movies">
+                        <i class="bi bi-film"></i> Descobrir Filmes
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="geek-alert">
+            <div class="main-message">
+                Sua próxima fixação está a um clique de distância...
+            </div>
+            <div class="warning">
+                <div class="warning-title">
+                    ⚠️ Cuidado:
+                </div>
+                <div class="effects">
+                    <div class="effect">
+                        <span class="emoji">💊🔴</span>
+                        <span>Pode causar crise existencial tipo 'Matrix'</span>
+                    </div>
+                    <div class="effect">
+                        <span class="emoji">🐍</span>
+                        <span>Vontade repentina de aprender Python às 3AM</span>
+                    </div>
+                    <div class="effect">
+                        <span class="emoji">😵‍💫</span>
+                        <span>Sintomas de "só mais um episódio" (sério, pare agora)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>GeekOS &copy; 2025 - Todos os direitos reservados</p>
+        <p>Feito com ❤️ por e para geeks</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateUserDisplay();
+
+            // Configura o listener para atualizações em outras abas
+            window.addEventListener('storage', function (event) {
+                if (event.key === 'userAccountUpdate') {
+                    updateUserDisplay();
+                }
+            });
+        });
+
+        // Função para atualizar a exibição do nome do usuário
+        function updateUserDisplay() {
+            const userData = JSON.parse(localStorage.getItem('userAccountData'));
+            const accountBtn = document.querySelector('.account-btn');
+
+            if (userData && accountBtn) {
+                // Encontra o elemento span dentro do botão de conta
+                const accountText = accountBtn.querySelector('span');
+                if (accountText) {
+                    accountText.textContent = userData.name;
+                } else {
+                    // Se não encontrar o span, cria um novo
+                    const icon = accountBtn.querySelector('i');
+                    accountBtn.innerHTML = '';
+                    if (icon) accountBtn.appendChild(icon);
+                    accountBtn.appendChild(document.createTextNode(userData.name));
+                }
+            }
+        }
+
+        // Função para simular o login (apenas para teste)
+        function simulateLogin() {
+            const userData = {
+                name: "Usuário Teste",
+                email: "teste@example.com"
+            };
+            localStorage.setItem('userAccountData', JSON.stringify(userData));
+            localStorage.setItem('userAccountUpdate', Date.now().toString());
+            updateUserDisplay();
+        }
+
+        // Função para logout (apenas para teste)
+        function simulateLogout() {
+            localStorage.removeItem('userAccountData');
+            localStorage.setItem('userAccountUpdate', Date.now().toString());
+            updateUserDisplay();
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

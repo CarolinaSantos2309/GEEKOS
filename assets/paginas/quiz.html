@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Geek - Teste Seu Conhecimento Nerd</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/stylequiz.css">
+</head>
+
+<body>
+    <main>
+        <section>
+            <header>
+                <div class="header-container">
+                    <div class="logo-space">
+                        <img src="/assets/imagens/o__1_-removebg-preview.png" alt="Logo do Site">
+                    </div>
+                    <div id="top">
+                        <ul>
+                            <li><a href="/index.html">Início</a></li>
+                            <li><a href="/assets/paginas/filme.html">Filme</a></li>
+                            <li><a href="/assets/paginas/serie.html">Série</a></li>
+                            <li><a href="/assets/paginas/quiz.html">Quiz</a></li>
+                        </ul>
+                    </div>
+                    <div id="account-container">
+                        <a href="/assets/paginas/login.html" class="account-btn" id="account-link">
+                            <i class="fas fa-user"></i> <span id="account-text">Minha Conta</span>
+                        </a>
+                    </div>
+
+                </div>
+            </header>
+        </section>
+    </main>
+
+    <div class="quiz-container">
+        <h1>Quiz Geek - Teste Seu Conhecimento</h1>
+
+        <div class="progress">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <div id="quiz">
+            <div class="question" id="question"></div>
+            <div class="options" id="options"></div>
+            <div class="controls">
+                <button id="prev" disabled>Anterior</button>
+                <button id="next">Próxima</button>
+            </div>
+        </div>
+
+        <div class="result" id="result">
+            <div class="emoji-result" id="emoji"></div>
+            <div id="score"></div>
+            <button id="restart">Jogar Novamente</button>
+        </div>
+    </div>
+    <footer>
+        <p>GeekOS &copy; 2025 - Todos os direitos reservados</p>
+        <p>Feito com ❤️ por e para geeks</p>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                question: "Qual linguagem de programação tem uma cobra como logo?",
+                options: ["Java", "Python", "C++", "JavaScript"],
+                answer: 1
+            },
+            {
+                question: "Em 'Stranger Things', como se chama o mundo paralelo?",
+                options: ["Upside Down", "Nether", "Shadow Realm", "Dark Zone"],
+                answer: 0
+            },
+            {
+                question: "Qual destes NÃO é um framework JavaScript?",
+                options: ["React", "Angular", "Django", "Vue"],
+                answer: 2
+            },
+            {
+                question: "Qual personagem diz 'May the Force be with you'?",
+                options: ["Spock", "Gandalf", "Obi-Wan Kenobi", "Neo"],
+                answer: 2
+            },
+            {
+                question: "Qual empresa criou o jogo 'The Legend of Zelda'?",
+                options: ["Sony", "Nintendo", "Microsoft", "Sega"],
+                answer: 1
+            }
+        ];
+
+        // Variáveis do quiz
+        let currentQuestion = 0;
+        let score = 0;
+        let selectedOption = -1;
+        let quizCompleted = false;
+
+        // Elementos DOM
+        const quizElement = document.getElementById('quiz');
+        const resultElement = document.getElementById('result');
+        const questionElement = document.getElementById('question');
+        const optionsElement = document.getElementById('options');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        const restartButton = document.getElementById('restart');
+        const progressBar = document.getElementById('progress');
+        const scoreElement = document.getElementById('score');
+        const emojiElement = document.getElementById('emoji');
+
+        // Carregar questão
+        function loadQuestion() {
+            const question = questions[currentQuestion];
+            questionElement.textContent = question.question;
+
+            optionsElement.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.classList.add('option');
+                optionElement.textContent = option;
+                optionElement.addEventListener('click', () => selectOption(index));
+                optionsElement.appendChild(optionElement);
+            });
+
+            updateProgress();
+            updateButtons();
+        }
+
+        // Selecionar opção
+        function selectOption(index) {
+            if (quizCompleted) return;
+
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => option.classList.remove('selected'));
+
+            selectedOption = index;
+            options[index].classList.add('selected');
+        }
+
+        // Verificar resposta
+        function checkAnswer() {
+            if (selectedOption === -1) {
+                alert('Por favor, selecione uma resposta antes de continuar!');
+                return false;
+            }
+
+            const question = questions[currentQuestion];
+            const options = document.querySelectorAll('.option');
+
+            options.forEach(option => {
+                option.style.cursor = 'default';
+                option.removeEventListener('click', selectOption);
+            });
+
+            if (selectedOption === question.answer) {
+                options[selectedOption].classList.add('correct');
+                score++;
+            } else {
+                options[selectedOption].classList.add('incorrect');
+                options[question.answer].classList.add('correct');
+            }
+
+            return true;
+        }
+
+        // Atualizar botões
+        function updateButtons() {
+            prevButton.disabled = currentQuestion === 0;
+            nextButton.textContent = currentQuestion === questions.length - 1 ? "Finalizar" : "Próxima";
+        }
+
+        // Atualizar progresso
+        function updateProgress() {
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Mostrar resultado
+        function showResult() {
+            quizElement.style.display = 'none';
+            resultElement.style.display = 'block';
+
+            const percentage = Math.round((score / questions.length) * 100);
+            scoreElement.textContent = `Você acertou ${score} de ${questions.length} (${percentage}%)`;
+
+            if (percentage >= 80) {
+                emojiElement.textContent = '🤓👑';
+                scoreElement.textContent += ' - Nível Mestre Geek!';
+            } else if (percentage >= 50) {
+                emojiElement.textContent = '🧠👍';
+                scoreElement.textContent += ' - Bom conhecimento!';
+            } else {
+                emojiElement.textContent = '🤔📚';
+                scoreElement.textContent += ' - Hora de maratonar mais séries!';
+            }
+        }
+
+        // Event listeners
+        nextButton.addEventListener('click', () => {
+            if (currentQuestion < questions.length - 1) {
+                if (checkAnswer()) {
+                    currentQuestion++;
+                    selectedOption = -1;
+                    loadQuestion();
+                }
+            } else {
+                if (checkAnswer()) {
+                    quizCompleted = true;
+                    showResult();
+                }
+            }
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                selectedOption = -1;
+                loadQuestion();
+            }
+        });
+
+        restartButton.addEventListener('click', () => {
+            currentQuestion = 0;
+            score = 0;
+            selectedOption = -1;
+            quizCompleted = false;
+            quizElement.style.display = 'block';
+            resultElement.style.display = 'none';
+            loadQuestion();
+        });
+
+        // Iniciar quiz
+        loadQuestion();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const userData = JSON.parse(localStorage.getItem('userAccountData'));
+            const accountText = document.getElementById('account-text');
+            if (userData && accountText) accountText.textContent = userData.name;
+
+            window.addEventListener('storage', function (e) {
+                if (e.key === 'userAccountUpdate') {
+                    const userData = JSON.parse(localStorage.getItem('userAccountData'));
+                    if (userData && accountText) accountText.textContent = userData.name;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

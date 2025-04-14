@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Conta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/stylelogin.css">
+</head>
+
+<body>
+    <header class="header-container">
+        <div class="logo-space">
+            <img src="/assets/imagens/o__1_-removebg-preview.png" alt="Logo do Site">
+        </div>
+
+        <nav id="top">
+            <ul>
+                <li><a href="/index.html">Início</a></li>
+                <li><a href="/assets/paginas/filme.html">Filme</a></li>
+                <li><a href="/assets/paginas/serie.html">Série</a></li>
+                <li><a href="/assets/paginas/quiz.html">Quiz</a></li>
+            </ul>
+        </nav>
+
+        <a href="/assets/paginas/login.html" class="account-btn">
+            <i class="fas fa-user"></i> <span id="account-text">Minha Conta</span>
+        </a>
+    </header>
+
+    <main class="main-content">
+        <div class="account-container">
+            <h2 class="account-title">Minha Conta</h2>
+    
+            <div class="user-info" id="user-info-display" style="display: none;">
+                <h3>Informações do Usuário</h3>
+                <p>Nome: <span id="display-name"></span></p>
+                <p>Email: <span id="display-email"></span></p>
+                <button class="save-btn" id="edit-info-btn">Editar Informações</button>
+            </div>
+    
+            <form class="account-form" id="account-form">
+                <div class="form-group">
+                    <label for="user-name">Nome</label>
+                    <input type="text" id="user-name" required>
+                </div>
+    
+                <div class="form-group">
+                    <label for="user-email">Email</label>
+                    <input type="email" id="user-email" required>
+                </div>
+    
+                <button type="submit" class="save-btn">Salvar Informações</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>GeekOS&copy; 2025 - Todos os direitos reservados</p>
+        <p>Feito com ❤️ por e para geeks</p>
+      </footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const userData = JSON.parse(localStorage.getItem('userAccountData'));
+        const accountText = document.getElementById('account-text');
+        if (userData && accountText) accountText.textContent = userData.name;
+
+        window.addEventListener('storage', function (e) {
+            if (e.key === 'userAccountUpdate') {
+                const userData = JSON.parse(localStorage.getItem('userAccountData'));
+                if (userData && accountText) accountText.textContent = userData.name;
+            }
+        });
+    });
+</script>
+<script src="/assets/js/main.js"></script>
+</body>
+
+</html>

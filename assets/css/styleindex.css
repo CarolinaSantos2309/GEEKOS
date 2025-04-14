@@ -1,0 +1,343 @@
+:root {
+    --primary: #6e44ff;
+    --secondary: #b892ff;
+    --dark: #121212;
+    --light: #f8f9fa;
+    --glass: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* ESTILOS GERAIS */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:
+        linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)),
+        url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--light);
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+/* HEADER */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--glass-border);
+    height: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo-space {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.logo-space img {
+    max-height: 170px;
+    width: auto;
+}
+
+#top {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#top ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    height: 100%;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+#top li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin: 0 10px;
+}
+
+#top li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -25px;
+    top: 20%;
+    bottom: 20%;
+    width: 1px;
+    background-color: #ddd;
+}
+
+#top a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 22px;
+    transition: color 0.3s;
+    padding: 0px 20px;
+    white-space: nowrap;
+}
+
+#top li:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 15px;
+}
+
+#top li:hover a {
+    color: #ffffff;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+.account-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.account-btn i {
+    font-size: 20px;
+}
+
+.account-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+h1 {
+    display: block;
+    justify-content: center;
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-bottom: 5px;
+
+
+}
+
+/* Estilos do Carrossel */
+.carousel {
+    height: 600px;
+    overflow: hidden;
+}
+
+.carousel-inner, 
+.carousel-item, 
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 50px; 
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    width: 70%;
+    max-width: 600px;
+    color: white;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-caption h5 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.carousel-caption code {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* Seção de Descrição */
+.descreicao-site {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: rgba(18, 18, 18, 0.7);
+}
+
+.titulo {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--primary);
+    text-shadow: 0 0 10px rgba(110, 68, 255, 0.5);
+}
+
+.texto {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-series {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-movies {
+    background-color: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+}
+
+.btn-series:hover {
+    background-color: #5a36d6;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(106, 68, 255, 0.4);
+}
+
+.btn-movies:hover {
+    background-color: rgba(110, 68, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Alerta Geek */
+/* Container pai ajustado */
+.container-lado-a-lado {
+    display: flex;
+    gap: 30px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: flex-start; /* Alinhar pelo topo */
+}
+
+/* Caixa da esquerda (mais acima) */
+.descreicao-site {
+    flex: 1;
+    min-width: 0;
+    padding: 40px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 16px;
+    margin-top: 20px; /* Ajuste fino se necessário */
+}
+
+/* Caixa da direita (mais abaixo) */
+.geek-alert {
+    flex: 1;
+    min-width: 0;
+    max-width: 500px;
+    padding: 30px;
+    margin-top: 80px; /* Valor que "abaixa" a caixa */
+    background: rgba(25, 25, 25, 0.85);
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid  #5a36d6;
+}
+
+/* Conteúdo do alerta */
+.main-message {
+    font-size: 1.4rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-shadow: 0 0 8px  #5a36d6;
+}
+.warning-title {
+    color: #ff5555;
+    font-weight: bold;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+/* Rodapé */
+footer {
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+    /* Espaço acima do footer */
+    border-top: 1px solid var(--glass-border);
+
+    /* Centralização completa */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* Garante que o footer fique no final */
+    width: 100%;
+}
+
+footer p {
+    margin: 0.5rem 0;
+    /* Remove qualquer alinhamento extra */
+    text-align: center !important;
+}
